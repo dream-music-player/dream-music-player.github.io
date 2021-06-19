@@ -16,9 +16,9 @@ var videoUrls = [
 ];
 var urls = [];
 
-for (var i = 0, len = videoUrls.length; i < len; i++) {
+for (let i = 0, len = videoUrls.length; i < len; i++) {
     getInfo(videoUrls[i]).then(info => {
-        urls.push(info["formats"][21]["url"]);
+        urls.splice(i, 1, info["formats"][21]["url"]);
     });
 }
 
@@ -27,13 +27,24 @@ var coverUrls = [
     "https://i.ytimg.com/vi/lx-__lBS6a4/hqdefault.jpg"
 ];
 
-function getDirectLink() {
-    let song = document.getElementById('title').innerHTML;
+function getDefaultLink() {
+    return urls[0];
+}
+
+function getDefaultCover() {
+    return coverUrls[0];
+}
+
+function getDirectLink(song) {
     return urls[getIndex(song)];
 }
 
 function getCoverLink(song) {
     return coverUrls[getIndex(song)];
+}
+
+function getUrls() {
+    return urls;
 }
 
 function waitFor(condition, callback) {
@@ -45,6 +56,6 @@ function waitFor(condition, callback) {
 }
 
 window.onload = function() {
-    waitFor(() => (videoUrls.length === urls.length), () => document.getElementById('audio').src = getDirectLink());
-    document.getElementById('cover').src = getCoverLink();
+    waitFor(() => (videoUrls.length === urls.length), () => document.getElementById('audio').src = getDefaultLink());
+    document.getElementById('cover').src = getDefaultCover();
 }

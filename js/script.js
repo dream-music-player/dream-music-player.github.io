@@ -12,7 +12,7 @@ const cover = document.getElementById('cover');
 const songs = ['roadtrip', 'mask'];
 let songIndex = 0;
 
-loadSong(songs[songIndex]);
+title.innerHTML = "roadtrip";
 
 function loadSong(song) {
     title.innerHTML = songs[getIndex(song)];
