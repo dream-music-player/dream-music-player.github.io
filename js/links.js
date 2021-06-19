@@ -43,10 +43,6 @@ function getCoverLink(song) {
     return coverUrls[getIndex(song)];
 }
 
-function getUrls() {
-    return urls;
-}
-
 function waitFor(condition, callback) {
     if (!condition()) {
         window.setTimeout(waitFor.bind(null, condition, callback), 100);
