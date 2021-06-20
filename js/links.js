@@ -1,3 +1,5 @@
+let loaded = false;
+
 function getIndex(song) {
     song = song || "roadtrip";
     switch (song) {
@@ -43,6 +45,10 @@ function getCoverLink(song) {
     return coverUrls[getIndex(song)];
 }
 
+function isLoaded() {
+    return loaded;
+}
+
 function waitFor(condition, callback) {
     if (!condition()) {
         window.setTimeout(waitFor.bind(null, condition, callback), 100);
@@ -51,7 +57,11 @@ function waitFor(condition, callback) {
     }
 }
 
-window.onload = function() {
-    waitFor(() => (videoUrls.length === urls.length), () => document.getElementById('audio').src = getDefaultLink());
-    document.getElementById('cover').src = getDefaultCover();
+function load() {
+    document.getElementById('audio').src = getDefaultLink();
+    loaded = true;
 }
+
+waitFor(() => (videoUrls.length === urls.length), () => load());
+document.getElementById('cover').src = getDefaultCover();
+document.getElementById('title').innerHTML = "roadtrip";

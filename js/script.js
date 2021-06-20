@@ -12,8 +12,6 @@ const cover = document.getElementById('cover');
 const songs = ['roadtrip', 'mask'];
 let songIndex = 0;
 
-title.innerHTML = "roadtrip";
-
 function loadSong(song) {
     title.innerHTML = songs[getIndex(song)];
     audio.src = getDirectLink(song);
@@ -66,17 +64,21 @@ function setProgress(e) {
     audio.currentTime = clickX / width * duration;
 }
 
-playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('play');
-    if (isPlaying) {
-        pauseSong();
-    } else {
-        playSong();
-    }
-});
+function registerListeners() {
+    playBtn.addEventListener('click', () => {
+        const isPlaying = musicContainer.classList.contains('play');
+        if (isPlaying) {
+            pauseSong();
+        } else {
+            playSong();
+        }
+    });
 
-prevBtn.addEventListener('click', prevSong)
-nextBtn.addEventListener('click', nextSong)
-audio.addEventListener('timeupdate', updateProgress);
-progressContainer.addEventListener('click', setProgress);
-audio.addEventListener('ended', nextSong);
+    prevBtn.addEventListener('click', prevSong)
+    nextBtn.addEventListener('click', nextSong)
+    audio.addEventListener('timeupdate', updateProgress);
+    progressContainer.addEventListener('click', setProgress);
+    audio.addEventListener('ended', nextSong);
+}
+
+waitFor(() => isLoaded(), () => registerListeners());
