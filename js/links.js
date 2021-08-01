@@ -1,5 +1,3 @@
-let loaded = false;
-
 function getIndex(song) {
     song = song || "roadtrip";
     switch (song) {
@@ -18,10 +16,11 @@ var videoUrls = [
 ];
 var urls = [];
 
-for (let i = 0, len = videoUrls.length; i < len; i++) {
-    getInfo(videoUrls[i]).then(info => {
+async function generateLinks() {
+    for (let i = 0, len = videoUrls.length; i < len; i++) {
+        let info = await getInfo(videoUrls[i]);
         urls.splice(i, 1, info["formats"][21]["url"]);
-    });
+    }
 }
 
 var coverUrls = [
@@ -45,23 +44,11 @@ function getCoverLink(song) {
     return coverUrls[getIndex(song)];
 }
 
-function isLoaded() {
-    return loaded;
+async function load() {
+    await generateLinks();
+    console.log(urls[0]);
+    document.getElementById('audio').src = urls[0];
 }
 
-function waitFor(condition, callback) {
-    if (!condition()) {
-        window.setTimeout(waitFor.bind(null, condition, callback), 100);
-    } else {
-        callback();
-    }
-}
-
-function load() {
-    document.getElementById('audio').src = getDefaultLink();
-    loaded = true;
-}
-
-waitFor(() => (videoUrls.length === urls.length), () => load());
 document.getElementById('cover').src = getDefaultCover();
 document.getElementById('title').innerHTML = "roadtrip";

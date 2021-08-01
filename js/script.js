@@ -64,7 +64,8 @@ function setProgress(e) {
     audio.currentTime = clickX / width * duration;
 }
 
-function registerListeners() {
+async function registerListeners() {
+    await load();
     playBtn.addEventListener('click', () => {
         const isPlaying = musicContainer.classList.contains('play');
         if (isPlaying) {
@@ -81,4 +82,4 @@ function registerListeners() {
     audio.addEventListener('ended', nextSong);
 }
 
-waitFor(() => isLoaded(), () => registerListeners());
+registerListeners();
