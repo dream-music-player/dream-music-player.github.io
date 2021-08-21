@@ -5,6 +5,8 @@ function getIndex(song) {
             return 0;
         case "mask":
             return 1;
+        case "change my clothes":
+            return 2;
         default:
             return 0;
     }
