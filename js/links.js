@@ -12,7 +12,8 @@ function getIndex(song) {
 
 var videoUrls = [
     "https://www.youtube.com/watch?v=Ow_PNMtMGhU",
-    "https://www.youtube.com/watch?v=Gp9gFXf56yQ"
+    "https://www.youtube.com/watch?v=Gp9gFXf56yQ",
+    "https://www.youtube.com/watch?v=kxWUcCUfDuE"
 ];
 var urls = [];
 
@@ -25,7 +26,8 @@ async function generateLinks() {
 
 var coverUrls = [
     "https://i.ytimg.com/vi/Ow_PNMtMGhU/hqdefault.jpg",
-    "https://i.ytimg.com/vi/lx-__lBS6a4/hqdefault.jpg"
+    "https://i.ytimg.com/vi/lx-__lBS6a4/hqdefault.jpg",
+    "https://i.ytimg.com/vi/kxWUcCUfDuE/hqdefault.jpg"
 ];
 
 function getDefaultLink() {
