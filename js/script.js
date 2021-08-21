@@ -9,7 +9,7 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 
-const songs = ['roadtrip', 'mask'];
+const songs = ['roadtrip', 'mask', 'change my clothes'];
 let songIndex = 0;
 
 function loadSong(song) {
