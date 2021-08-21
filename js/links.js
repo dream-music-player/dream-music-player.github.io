@@ -22,7 +22,11 @@ var urls = [];
 async function generateLinks() {
     for (let i = 0, len = videoUrls.length; i < len; i++) {
         let info = await getInfo(videoUrls[i]);
-        urls.splice(i, 1, info["formats"][21]["url"]);
+        if (i === 2) {
+            urls.splice(i, 1, info["formats"][14]["url"]);
+        } else {
+            urls.splice(i, 1, info["formats"][21]["url"]);
+        }
     }
 }
 
