@@ -28,7 +28,7 @@ async function generateLinks() {
 
 var coverUrls = [
     "https://i.ytimg.com/vi/Ow_PNMtMGhU/hqdefault.jpg",
-    "https://i.ytimg.com/vi/lx-__lBS6a4/hqdefault.jpg",
+    "https://i.ytimg.com/vi/Gp9gFXf56yQ/hqdefault.jpg",
     "https://i.ytimg.com/vi/kxWUcCUfDuE/hqdefault.jpg"
 ];
 
