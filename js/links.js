@@ -50,7 +50,6 @@ function getCoverLink(song) {
 
 async function load() {
     await generateLinks();
-    console.log(urls[0]);
     document.getElementById('audio').src = urls[0];
 }
 
