@@ -12,7 +12,7 @@ function getIndex(song) {
     }
 }
 
-var videoUrls = [
+const videoUrls = [
     "https://www.youtube.com/watch?v=Ow_PNMtMGhU",
     "https://www.youtube.com/watch?v=Gp9gFXf56yQ",
     "https://www.youtube.com/watch?v=kxWUcCUfDuE"
@@ -20,13 +20,13 @@ var videoUrls = [
 var urls = [];
 
 async function generateLinks() {
-    for (let i = 0, len = videoUrls.length; i < len; i++) {
+    for (let i = 0, i < videoUrls.length; i++) {
         let info = await getInfo(videoUrls[i]);
         urls.splice(i, 1, info["formats"][21]["url"]);
     }
 }
 
-var coverUrls = [
+const coverUrls = [
     "https://i.ytimg.com/vi/Ow_PNMtMGhU/hqdefault.jpg",
     "https://i.ytimg.com/vi/Gp9gFXf56yQ/hqdefault.jpg",
     "https://i.ytimg.com/vi/kxWUcCUfDuE/hqdefault.jpg"
