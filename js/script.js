@@ -13,9 +13,9 @@ const songs = ['roadtrip', 'mask', 'change my clothes'];
 let songIndex = 0;
 
 function loadSong(song) {
-    title.innerHTML = songs[getIndex(song)];
-    audio.src = getDirectLink(song);
-    cover.src = getCoverLink(song);
+    title.innerHTML = songs[song];
+    audio.src = urls[song];
+    cover.src = coverUrls[song];
 }
 
 function playSong() {
@@ -37,7 +37,7 @@ function prevSong() {
     if (songIndex < 0) {
         songIndex = songs.length - 1;
     }
-    loadSong(songs[songIndex]);
+    loadSong(songIndex);
     playSong();
 }
 
@@ -46,7 +46,7 @@ function nextSong() {
     if (songIndex > songs.length - 1) {
         songIndex = 0;
     }
-    loadSong(songs[songIndex]);
+    loadSong(songIndex);
     playSong();
 }
 
