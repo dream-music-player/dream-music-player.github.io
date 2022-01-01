@@ -1,15 +1,1 @@
-{
-    "short_name": "Dream Music",
-    "name": "Dream Music Player",
-    "icons": [
-        {
-            "src": "https://i.scdn.co/image/ab6761610000e5eb78fc1f07ff7cb4a5552d2bec",
-            "sizes": "192x192",
-            "type": "image/png"
-        }
-    ],
-    "start_url": ".",
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
-}
+{"short_name":"Dream Music","name":"Dream Music Player","icons":[{"src":"https://i.scdn.co/image/ab6761610000e5eb78fc1f07ff7cb4a5552d2bec","sizes":"192x192","type":"image/png"}],"start_url":".","display":"standalone","theme_color":"#000000","background_color":"#ffffff"}
